@@ -1,0 +1,560 @@
+@media screen and (width < 1780px) {
+    #name_designer {
+        font-size: 34px;
+    }
+
+    #signature_designer {
+        font-size: 16px;
+    }
+
+    #designer>a>div>img {
+        width: 180px;
+    }
+
+    #designer>a {
+        height: 200px;
+    }
+
+    .cards>div>a>img {
+        width: 280px;
+    }
+}
+
+@media screen and (width < 1540px) {
+    #name_designer {
+        font-size: 32px;
+    }
+
+    #designer>a>div>img {
+        width: 170px;
+    }
+
+    #designer>a {
+        height: 190px;
+        max-width: 50%;
+    }
+
+    .cards>div>a {
+        height: 360px
+    }
+
+    .cards>div>a>img {
+        width: 260px;
+    }
+
+    .cards {
+        height: 380px;
+    }
+
+    .name_cake {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 19px;
+    }
+}
+
+@media screen and (width < 1310px) {
+    #name_designer {
+        font-size: 26px;
+    }
+
+    #designer>a>div>img {
+        width: 155px;
+    }
+
+    .cards>div>a {
+        height: 350px
+    }
+
+    .cards>div>a>img {
+        width: 245px;
+    }
+
+    .cards {
+        margin-bottom: 14px;
+        height: 350px;
+    }
+}
+
+@media screen and (width < 1225px) {
+
+    #designer>a>div>img {
+        width: 155px;
+    }
+
+    .cards>div>a {
+        height: 295px
+    }
+
+    .cards>div>a>img {
+        width: 205px;
+    }
+
+    .cards {
+        margin-bottom: 9px;
+        height: 290px;
+    }
+
+    h2 {
+        margin: 26px 0px;
+    }
+
+    .name_cake {
+        font-size: 17px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (width < 1025px) {
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .chapter>a>img {
+        width: 27px;
+    }
+
+    #name_designer {
+        font-size: 27px;
+    }
+
+    #designer>a>div>img {
+        width: 155px;
+    }
+
+    #designer>a {
+        height: 160px;
+        min-width: 60%;
+    }
+
+    .cards>div>a>img {
+        width: 170px;
+    }
+
+    .cards>div>a {
+        height: 255px
+    }
+
+    .cards {
+        height: 260px;
+    }
+
+    .name_cake {
+        font-size: 15px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+}
+
+@media screen and (width < 890px) {
+    #designer>a {
+        min-width: 75%;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .cards>div>a>img {
+        width: 140px;
+    }
+
+    .cards>div>a {
+        height: 230px
+    }
+
+    .cards {
+        height: 240px;
+    }
+}
+
+@media screen and (width < 680px) {
+    menu {
+        font-size: 13px;
+        width: 180px;
+    }
+
+    .chapter {
+        padding: 0px 40px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .chapter>a>img {
+        width: 22px;
+    }
+
+    #name_designer {
+        font-size: 22px;
+    }
+
+    #signature_designer {
+        font-size: 12px;
+    }
+
+    #designer>a>div>img {
+        width: 140px;
+    }
+
+    #designer>a {
+        height: 150px;
+        min-width: 80%;
+    }
+
+    .cards>div>a>img {
+        width: 110px;
+    }
+
+    .cards>div>a {
+        height: 190px
+    }
+
+    .cards {
+        height: 195px;
+    }
+
+    .name_cake {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 11px;
+    }
+
+    .popup {
+        width: 350px;
+    }
+
+    .popup>img {
+        width: 300px;
+    }
+}
+
+@media screen and (width < 560px) {
+    #name {
+        width: 148px;
+    }
+
+    #name>h1 {
+        font-size: 16px;
+    }
+
+    #name>img {
+        width: 28px;
+    }
+
+    menu {
+        font-size: 12px;
+        width: 170px;
+        height: 35px;
+    }
+
+    #name_designer {
+        font-size: 21px;
+    }
+
+    #signature_designer {
+        font-size: 12px;
+    }
+
+    #designer>a>div>img {
+        width: 115px;
+    }
+
+    #designer>a {
+        height: 135px;
+        min-width: 85%;
+    }
+
+    #catalog,
+    .chapter {
+        padding-left: 25px;
+    }
+
+
+    .cards>div>a>img {
+        width: 90px;
+    }
+
+    .cards>div>a {
+        height: 160px
+    }
+
+    .cards {
+        height: 160px;
+    }
+
+    .name_cake {
+        font-size: 11px;
+    }
+
+    .price {
+        font-size: 11px;
+    }
+
+    .popup {
+        width: 320px;
+        height: 450px;
+
+    }
+
+    .popup>img {
+        width: 270px;
+        top: 25%;
+    }
+
+    .name_cake_popup {
+        font-size: 20.3px;
+    }
+
+    .price_popup {
+        font-size: 16px;
+    }
+
+    .quantity_inner .bt_minus,
+    .quantity_inner .bt_plus,
+    .quantity_inner .quantity {
+        height: 25px;
+        font-size: 20px;
+    }
+
+    .quantity_inner .bt_minus svg,
+    .quantity_inner .bt_plus svg,
+    .quantity_inner .bt_buy svg {
+        margin: 5px;
+    }
+
+    .quantity_inner .bt_buy {
+        height: 33px;
+    }
+}
+
+@media screen and (width < 470px) {
+
+    body {
+        padding: 10px 20px;
+    }
+
+    #name {
+        width: 130px;
+    }
+
+    #name>h1 {
+        font-size: 14px;
+    }
+
+    #name>img {
+        width: 24px;
+    }
+
+    menu {
+        display: none;
+    }
+
+    #small_page {
+        display: flex;
+        background: transparent;
+        padding: 0px;
+        width: 90px;
+    }
+
+    #small_page>li>a>img {
+        width: 20px;
+    }
+
+    h2 {
+        font-size: 17px;
+    }
+
+    #name_designer {
+        font-size: 17px;
+    }
+
+    #signature_designer {
+        font-size: 10px;
+    }
+
+    #designer>a>div>img {
+        width: 100px;
+    }
+
+    #designer>a {
+        height: 115px;
+        min-width: 100%;
+    }
+
+    #catalog,
+    .chapter {
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    .chapter>a>img {
+        width: 19px;
+    }
+
+
+    .cards>div>a>img {
+        width: 80px;
+    }
+
+    .cards>div>a {
+        height: 145px
+    }
+
+    .cards {
+        height: 140px;
+    }
+
+    .name_cake {
+        font-size: 9.5px;
+    }
+
+    .name_cake_popup {
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .price_popup {
+        font-size: 13px;
+    }
+
+    .content {
+        font-size: 12px;
+    }
+
+    .popup {
+        width: 255px;
+        height: 410px;
+
+    }
+
+    .popup>img {
+        width: 230px;
+        top: 29%;
+    }
+
+    .quantity_inner .bt_minus,
+    .quantity_inner .bt_plus,
+    .quantity_inner .quantity {
+        height: 25px;
+        font-size: 16px;
+        width: 40px;
+
+    }
+
+    .quantity_inner {
+        width: 100px;
+    }
+}
+
+@media screen and (width < 400px) {
+    h2 {
+        margin: 20px 0px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+        height: 370px;
+        width: 80%;
+        margin: auto;
+    }
+
+    .cards>div>a>img {
+        width: 110px;
+    }
+
+    .cards>div>a {
+        height: 175px
+    }
+
+
+}
+
+@media screen and (width < 350px) {
+
+    #name {
+        width: 115px;
+    }
+
+    #name>h1 {
+        font-size: 12px;
+    }
+
+    #name>img {
+        width: 21px;
+    }
+
+    #small_page {
+        width: 70px;
+    }
+
+    #small_page>li>a>img {
+        width: 16px;
+    }
+
+    #name_designer {
+        font-size: 13px;
+    }
+
+    #signature_designer {
+        font-size: 9px;
+    }
+
+    #designer>a>div>img {
+        width: 90px;
+    }
+
+    #designer>a {
+        height: 115px;
+        min-width: 100%;
+    }
+
+    #catalog,
+    .chapter {
+        padding-left: 10px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+
+    .cards>div>a>img {
+        width: 85px;
+    }
+
+    .cards>div>a {
+        height: 145px
+    }
+
+    .cards {
+        height: 305px;
+    }
+
+    .name_cake {
+        font-size: 9.5px;
+    }
+
+    .name_cake_popup {
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+}
