@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кондитерская</title>
+    <link rel="stylesheet" type="text/css" href="login_style.css">
+    <link href="main_media_screen.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="main.html">
+            <div id="name">
+                <h1>Кондитерская</h1>
+                <img src="Image/Лого.png">
+            </div>
+        </a>
+
+        <div class="cloze">
+            <a href="/main.html"><img src="Image/icons8-умножение-48.png"></a>
+        </div>
+    </header>
+
+    <div class="card" id="autoriz">
+        <a class="singup">Авторизация</a>
+
+        <form class="form" id="form">
+            <div class="inputBox1">
+                <input type="text" id="login" name="login" required="required">
+                <span class="user" for="login">Логин</span>
+            </div>
+
+            <div class="inputBox">
+                <input type="password" id="password" name="password" required="required">
+                <span for="password">Пароль</span>
+            </div>
+
+            <button class="enter">Войти</button>
+            <a class="register" href="registration.html">Регистрация</a>
+        </form>
+    </div>
+
+    <div class="account_bl" id="account">
+
+        <h1 class="greetings">Добро пожаловать, <span id="user_name"></span>!</h1>
+        
+
+        <button class="logout_btn" id="logout_btn">
+            <div class="sign">
+                <svg viewBox="0 0 512 512">
+                    <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 
+                    27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 
+                    9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 
+                    0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 
+                    15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 
+                    0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 
+                    32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 
+                    32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                    </path>
+                </svg>
+            </div>
+  
+            <div class="text">Выйти</div>
+        </button>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const autoriz = document.getElementById('autoriz');
+            const form = document.getElementById('form');
+            const account = document.getElementById('account');
+            const user_name = document.getElementById('user_name');
+            const logout_btn = document.getElementById('logout_btn');
+
+            function showAccountPage(user) {
+                console.log("Showing account page for user:", user);
+                autoriz.style.display = 'none';
+                account.style.display = 'flex';
+
+                user_name.textContent = user.login; // Используем логин как имя пользователя
+            }
+
+            function showLoginForm() {
+                console.log("Showing login form");
+                autoriz.style.display = 'flex';
+                account.style.display = 'none';
+            }
+
+            const user_id = sessionStorage.getItem('user_id');
+            console.log("userId from sessionStorage:", user_id);
+
+            if (user_id) {
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                console.log("users from localStorage:", users);
+
+                const user = users.find(user => user.id === parseInt(user_id));
+                console.log("Found user:", user);
+
+                if (user) {
+                    showAccountPage(user);
+                } else {
+                    console.log("User not found in localStorage");
+                    showLoginForm();
+                }
+            } else {
+                console.log("userId not found in sessionStorage");
+                showLoginForm();
+            }
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const login = document.getElementById('login').value;
+                const password = document.getElementById('password').value;
+
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+
+                const user = users.find(user => user.login === login && user.password === password);
+
+                if (user) {
+                    alert('Авторизация прошла успешно!');
+                    sessionStorage.setItem('user_id', user.id);
+                    showAccountPage(user);
+                    // Здесь можно добавить перенаправление на другую страницу
+                    // window.location.href = "welcome.html";
+                } else {
+                    alert('Неверный логин или пароль.');
+                }
+            });
+
+            logout_btn.addEventListener('click', function() {+
+                sessionStorage.removeItem('user_id');
+                showLoginForm();
+            });
+        });
+    </script>
+</body>
+
+</html>

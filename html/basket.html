@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кондитерская</title>
+    <link rel="stylesheet" type="text/css" href="basket_style.css">
+    <link href="" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="main.html">
+            <div id="name">
+                <h1>Кондитерская</h1>
+                <img src="Image/Лого.png">
+            </div>
+        </a>
+
+        <div class="cloze">
+            <a href="/main.html"><img src="Image/icons8-умножение-48.png"></a>
+        </div>
+    </header>
+
+    <h2>Корзина</h2>
+
+    <div id="basket">
+        <h3>Ваш заказ</h3>
+        <ul id="basket-items">
+            <!-- Сюда будут добавляться товары из корзины -->
+        </ul>
+        <div id="price">
+            <p>Всего: <span id="total-price">0</span></p>
+        </div>
+
+        <div id="checkout-section">
+            <button class="checkout-button" id="checkout-section" onclick="checkout()">Оформить</button>
+        </div>
+        
+    </div>
+
+    <script>
+        const basketItemsList = document.getElementById('basket-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const checkoutSection = document.getElementById('checkout-section');
+
+        function createDeleteButton(index, basket, displaybasket) {
+            const button = document.createElement('button');
+            button.className = 'noselect';
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'text';
+            textSpan.textContent = 'Удалить';
+
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'icon';
+
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute('xmlns', "http://www.w3.org/2000/svg");
+            svg.setAttribute('width', "24");
+            svg.setAttribute('height', "24");
+            svg.setAttribute('viewBox', "0 0 24 24");
+
+            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute('d', "M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z");
+
+            svg.appendChild(path);
+            iconSpan.appendChild(svg);
+
+            button.appendChild(textSpan);
+            button.appendChild(iconSpan);
+
+            button.addEventListener('click', () => {
+                basket.splice(index, 1);
+                localStorage.setItem('basket', JSON.stringify(basket));
+                displaybasket();
+            });
+
+            return button;
+        } 
+
+        function displaybasket() {
+            let basket = JSON.parse(localStorage.getItem('basket') || '[]');
+            let total = 0;
+            basketItemsList.innerHTML = '';
+
+            basket.forEach((item, index) => {
+                let itemTotalPrice;
+                let quantityText = `Количество: ${item.quantity}`;
+                let totalPriceText = `Всего: `;
+
+                // Check if item.size exists (if it exists means there were quantity options)
+                if (item.size) {
+                    itemTotalPrice = item.price * item.quantity;
+                    totalPriceText += `${itemTotalPrice.toFixed(2)} ₽`;
+                } else {
+                    // Check if quantity is 1 and if it's from the popup
+                    if (item.quantity === 1) {
+                        itemTotalPrice = item.price;
+                        quantityText = `1 шт.`;
+                        totalPriceText += `${item.price.toFixed(2)} ₽`;
+                    } else {
+                        // If it doesn't have a quantity, consider the quantity to be 1
+                        itemTotalPrice = item.price * item.quantity; // this make sure items from popup where added as the quantity chosen
+                        totalPriceText = `Всего: ${itemTotalPrice.toFixed(2)} ₽`;
+                    }
+                }
+
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+
+                // Check if item.size exists (if it exists means there were quantity options)
+                if (item.size) {
+                img.src = `Image/cake-${item.size}-${item.cream1}-${item.biscuit1}-${item.topping}.png`; // Construct image path
+                } else {
+                img.src = item.image; // if it doesnt exist, use image from popup
+                }
+                img.alt = item.name;
+                li.appendChild(img);
+
+                // Item description
+                const itemInfo = document.createElement('div');
+                itemInfo.innerHTML = `
+                <div>${item.name}</div>
+                <div>${quantityText}</div>
+                <div>Цена за шт: ${item.price.toFixed(2)} ₽</div>
+                <div>${totalPriceText}</div>
+                `;
+                li.appendChild(itemInfo);
+
+                // Delete button:
+                const deleteButton = createDeleteButton(index, basket, displaybasket); // 	передаем функцию и basket
+                li.appendChild(deleteButton);
+                basketItemsList.appendChild(li);
+                total += itemTotalPrice;
+            });
+            totalPriceElement.textContent = total.toFixed(2);
+        }
+
+
+        function checkIfUserLoggedIn() {
+            return sessionStorage.getItem('user_id') !== null;
+        }
+
+        function updateCheckoutSection() {
+            if (checkIfUserLoggedIn()) {
+                checkoutSection.innerHTML = '<button class="checkout-button" onclick="checkout()">Оформить</button>';
+            } else {
+                checkoutSection.innerHTML = `<p>Пожалуйста, <a href="login.html">войдите</a> чтобы продолжить оформление заказа.</p>`;
+            }
+        }
+
+        function checkout() {
+        let basket = JSON.parse(localStorage.getItem('basket') || '[]');
+        if (basket.length > 0) {
+            alert("Спасибо за заказ!")
+            localStorage.removeItem('basket');
+            displaybasket();
+        } else {
+            alert("Корзина пуста!");
+        }
+        }
+
+        updateCheckoutSection();
+        displaybasket();
+    </script>
+    
+</body>
+</html>
