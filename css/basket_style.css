@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+/* 
+* {
+    outline: 1px solid green !important;
+} */
+
+body {
+    background-color: #F4F3F2;
+    padding: 10px 30px;
+    margin: 0px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1760px;
+    margin: auto;
+}
+
+#name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 185px;
+}
+
+#name>h1 {
+    font-family: Playfair Display;
+    color: #513427;
+    font-size: 20px;
+}
+
+#name>img {
+    width: 35px;
+}
+
+
+.cloze>a>img {
+    width: 35px;
+}
+
+h2 {
+    font-family: Playfair Display;
+    color: #3E2318;
+    font-size: 33px;
+    margin: 40px 0px;
+}
+
+h3 {
+    font-family: Playfair Display;
+    color: #3E2318;
+    font-size: 25px;
+}
+
+#basket-items {
+    padding: 0px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+#basket-items li {
+    font-family: Inter;
+    color: #F4F3F2;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #3e2318a8;
+    padding: 10px;
+    border-radius: 20px;
+    width: 60%;
+}
+
+#basket-items li img {
+    background-color: #5134277e;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+#basket-items li div {
+    flex-grow: 1;
+}
+
+.noselect {
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #EC4E20;
+   }
+   
+   .noselect, .noselect span {
+    transition: 200ms;
+   }
+   
+   .noselect .text {
+    transform: translateX(15px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   .noselect .icon {
+    position: absolute;
+    border-left: 1px solid #EC4E20;
+    transform: translateX(80px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   .noselect svg {
+    width: 15px;
+    fill: #eee;
+   }
+   
+   .noselect:hover .text {
+    color: transparent;
+   }
+   
+   .noselect:hover .icon {
+    width: 116px;
+    border-left: none;
+    transform: translateX(0);
+   }
+   
+   .noselect:focus {
+    outline: none;
+   }
+   
+   .noselect:active .icon svg {
+    transform: scale(0.8);
+   }
+ 
+
+#price {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    width: fit-content;
+    padding: 5px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #3E2318;
+}
+
+/* From Uiverse.io by zjssun */ 
+.checkout-button{
+    font-family: Inter;
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #F4F3F2;
+    cursor: pointer;
+    background-color: #3E2318;
+    transition: all 0.2s ease;
+    margin: 0px 0px 0px 20px;
+  }
+  
+  .checkout-button:active {
+    transform: scale(0.96);
+  }
+  
+  .checkout-button:before,
+  .checkout-button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  
+  .checkout-button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, #3E2318 20%, transparent 30%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #3E2318 15%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+      10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+  }
+  
+  @keyframes greentopBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+        40% 90%, 55% 90%, 70% 90%;
+    }
+  
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+  
+    100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+        50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+  
+  .checkout-button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #3E2318 15%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%),
+      radial-gradient(circle, #3E2318 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+  }
+
+  
+p {
+  font-family: Inter;
+
+}
+
+p a {
+  color: #EC4E20;
+  font-weight: 600;
+}
+  
+  @keyframes greenbottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+        70% -10%, 70% 0%;
+    }
+  
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+        105% 0%;
+    }
+  
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+        110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }

@@ -1,0 +1,185 @@
+    <script>
+
+        const cakeImage = document.getElementById('cake-image');
+        const sizeButtons = document.querySelectorAll('.size-button');
+        const cream1Select = document.getElementById('cream1-select');
+        const biscuit1Select = document.getElementById('biscuit1-select');
+        const toppingSelect = document.getElementById('topping-select');
+        const cakeContainer = document.getElementById('cake-container');
+        const totalWeightElement = document.getElementById('total-weight');
+        const portionWeightElement = document.getElementById('portion-weight');
+        const portionCountElement = document.getElementById('portion-count');
+
+        let currentSize = 'средний';
+        let cakeData = {
+            маленький: { width: 200, height: 150, weight: 500, portionWeight: 60, portionCount: 8 },
+            средний: { width: 300, height: 200, weight: 1000, portionWeight: 125, portionCount: 8 },
+            большой: { width: 400, height: 250, weight: 1500, portionWeight: 180, portionCount: 8 }
+        };
+
+        // Size slider functionality
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+                currentSize = button.dataset.size;
+                updateCake();
+            });
+        });
+
+        function updateCakeSize() {
+            cakeContainer.style.width = `${cakeData[currentSize].width}px`;
+            cakeContainer.style.height = `${cakeData[currentSize].height}px`;
+            cakeImage.style.width = `${cakeData[currentSize].width}px`;
+            cakeImage.style.height = `${cakeData[currentSize].height}px`;
+        }
+
+        function updateCakeInfo() {
+            totalWeightElement.textContent = `${cakeData[currentSize].weight}px`;
+            portionWeightElement.textContent = `${cakeData[currentSize].portionWeight}px`;
+            portionCountElement.textContent = `${cakeData[currentSize].portionCount}px`;
+        }
+
+        function updateCakeImage() {
+            cakeImage.style.opacity = 0; // Fade out the image
+            setTimeout(() => {
+                let cream1 = cream1Select.value;
+                let biscuit1 = biscuit1Select.value;
+                let topping = toppingSelect.value;
+
+
+                let imagePath = `Image/cake-${currentSize}-${cream1}-${biscuit1}-${topping}.png`; //  Add topping
+
+                cakeImage.src = imagePath;
+                cakeImage.style.opacity = 1; // Fade in the image after changing the source
+            }, 500); // Match the transition duration in CSS
+        }
+
+        function updateCake() {
+            updateCakeSize();
+            updateCakeInfo();
+            updateCakeImage();
+        }
+
+
+        // Event listeners for layer selects
+        cream1Select.addEventListener('change', updateCakeImage);
+        biscuit1Select.addEventListener('change', updateCakeImage);
+        toppingSelect.addEventListener('change', updateCakeImage); // Add topping listener
+
+        // Initial cake update
+        updateCake();
+        const orderButton = document.getElementById('order-button');
+        const cakePriceDisplay = document.getElementById('cake-price');
+
+        // Цены на слои:
+        const layerPrices = {
+            ваниль: 0,
+            шоколад: 50,
+            клубника: 75,
+            ягоды: 100,
+            ничего: 0
+        };
+
+        const sizePrices = {
+            маленький: 800,
+            средний: 1200,
+            большой: 1600
+        }
+
+        orderButton.addEventListener('click', () => {
+            const cream1 = cream1Select.value;
+            const biscuit1 = biscuit1Select.value;
+            const topping = toppingSelect.value;
+            const size = currentSize;
+            const price = calculatePrice();
+
+
+            const basketItem = {
+                name: `Торт ${size}, крем: ${cream1}, бисквит: ${biscuit1},  украшение: ${topping}`,
+                price: price,
+                size: size,
+                cream1: cream1,
+                biscuit1: biscuit1,
+                topping: topping,
+                quantity: 1,
+
+            };
+
+            // Сохраняем в localStorage
+            let basket = JSON.parse(localStorage.getItem('basket') || '[]'); // Получаем корзину или создаем пустую
+            basket.push(basketItem);
+            localStorage.setItem('basket', JSON.stringify(basket));
+
+            // Перенаправляем на страницу корзины
+            window.location.href = 'basket.html'; // Или другое имя вашей страницы корзины
+        });
+
+        function calculatePrice() {
+            let basePrice = sizePrices[currentSize];  // Базовая цена от размера
+            let cream1Price = layerPrices[cream1Select.value];
+            let biscuit1Price = layerPrices[biscuit1Select.value];
+            let toppingPrice = layerPrices[toppingSelect.value];
+
+            return basePrice + cream1Price + biscuit1Price + toppingPrice;
+        }
+
+
+        function updatePrice() {
+            cakePriceDisplay.textContent = calculatePrice();
+        }
+
+        // Size slider functionality
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+                currentSize = button.dataset.size;
+                updateCake();
+                updatePrice();
+            });
+        });
+
+        function updateCakeSize() {
+            cakeContainer.style.width = `${cakeData[currentSize].width}px`;
+            cakeContainer.style.height = `${cakeData[currentSize].height}px`;
+            cakeImage.style.width = `${cakeData[currentSize].width}px`;
+            cakeImage.style.height = `${cakeData[currentSize].height}px`;
+        }
+        function updateCakeInfo() {
+            totalWeightElement.textContent = `${cakeData[currentSize].weight} г`;
+            portionWeightElement.textContent = `${cakeData[currentSize].portionWeight} г`;
+            portionCountElement.textContent = `${cakeData[currentSize].portionCount} шт`;
+        }
+
+        function updateCakeImage() {
+            cakeImage.style.opacity = 0; // Fade out the image
+            setTimeout(() => {
+                let cream1 = cream1Select.value;
+                let biscuit1 = biscuit1Select.value;
+                let topping = toppingSelect.value;
+
+                let imagePath = `Image/cake-${currentSize}-${cream1}-${biscuit1}-${topping}.png`; //  Add topping
+
+                cakeImage.src = imagePath;
+                cakeImage.alt = `Торт ${currentSize}, крем: ${cream1}, бисквит: ${biscuit1},  украшение: ${topping}`; //  Update alt text!
+                cakeImage.style.opacity = 1;
+            }, 500); // Match the transition duration in CSS
+        }
+
+        function updateCake() {
+            updateCakeSize();
+            updateCakeInfo();
+            updateCakeImage();
+        }
+
+        // Event listeners for layer selects
+        cream1Select.addEventListener('change', updatePrice);
+        biscuit1Select.addEventListener('change', updatePrice);
+        toppingSelect.addEventListener('change', updatePrice);
+
+
+        // Initial cake update
+        updateCake();
+        updatePrice();
+    </script>

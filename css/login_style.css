@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* 
+* {
+    outline: 1px solid green !important;
+} */
+
+
+body {
+    background-color: #F4F3F2;
+    padding: 10px 30px;
+    margin: 0px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1760px;
+    margin: auto;
+}
+
+#name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 185px;
+}
+
+#name>h1 {
+    font-family: Playfair Display;
+    color: #513427;
+    font-size: 20px;
+}
+
+#name>img {
+    width: 35px;
+}
+
+
+.cloze>a>img {
+    width: 35px;
+}
+
+
+.singup {
+    font-family: Playfair Display;
+    color: #3E2318;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 1.5em;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    width: 300px;
+    flex-direction: column;
+    gap: 35px;
+    border-radius: 15px;
+    background: #e3e3e3;
+    box-shadow: 16px 16px 32px #c8c8c8,
+        -16px -16px 32px #fefefe;
+    border-radius: 8px;
+    margin: 100px auto;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.inputBox,
+.inputBox1 {
+    position: relative;
+    width: 250px;
+}
+
+.inputBox input,
+.inputBox1 input {
+    font-family: Inter;
+    width: 95%;
+    outline: none;
+    border: none;
+    color: #3E2318;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid #3E2318;
+    border-bottom: 2px solid #3E2318;
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+    padding: 10px 0px 10px 10px;
+}
+
+.inputBox span,
+.inputBox1 span {
+    font-family: Inter;
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-3px);
+    margin-left: 10px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 12px;
+    color: #3E2318;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 3px;
+    border-radius: 8px;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    transform: translateX(140px) translateY(-55px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #3E2318;
+    letter-spacing: 0.2em;
+    color: #F4F3F2;
+    border: 2px;
+}
+
+.inputBox1 input:valid~span,
+.inputBox1 input:focus~span {
+    transform: translateX(140px) translateY(-55px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #3E2318;
+    letter-spacing: 0.2em;
+    color: #F4F3F2;
+    border: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox1 input:valid,
+.inputBox1 input:focus {
+    border: 2px solid #3E2318;
+    border-radius: 8px;
+}
+
+.enter {
+    height: 45px;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid #3E2318;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.enter:hover {
+    background-color: #3E2318;
+    color: #F4F3F2;
+}
+
+.register {
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-family: Inter;
+    color: #3E2318;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.greetings {
+    font-family: Playfair Display;
+    color: #3E2318;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 23px;
+    text-align: center;
+}
+
+.account_bl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 270px;
+    width: 330px;
+    flex-direction: column;
+    gap: 35px;
+    border-radius: 15px;
+    background: #e3e3e3;
+    box-shadow: 16px 16px 32px #c8c8c8,
+        -16px -16px 32px #fefefe;
+    border-radius: 8px;
+    margin: 100px auto;
+    position: relative;
+
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.logout_btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: #3E2318;
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: #F4F3F2;
+  }
+  /* text */
+  .text {
+    font-family: Inter;
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: #F4F3F2;
+    font-size: 16px;
+    font-weight: 500;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .logout_btn:hover {
+    width: 135px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .logout_btn:hover .sign {
+    width: 17%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .logout_btn:hover .text {
+    opacity: 1;
+    width: 65%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .logout_btn:active {
+    transform: translate(2px ,2px);
+  }
